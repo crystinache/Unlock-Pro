@@ -38,7 +38,7 @@ export default function LockScreen({ onNavigate, bgImage }: LockScreenProps) {
       )}
       
       {/* Clock and Date */}
-      <div className="z-10 mt-24 flex flex-col items-center">
+      <div className="z-10 mt-20 flex flex-col items-center">
         <div className="text-7xl font-bold tracking-wider text-white">
           {format(time, 'HH:mm')}
         </div>

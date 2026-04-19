@@ -81,6 +81,13 @@ export default function App() {
           value: newMemorizedPeek,
           type: newPeekType
         });
+
+        // Attempt to "close" the app (minimize/background)
+        // Note: window.close() only works if the tab was opened by a script,
+        // but we'll try it as a best effort.
+        if (typeof window !== 'undefined') {
+          window.close();
+        }
       }, 300);
       return true; // indicates success/unlock
     } else {

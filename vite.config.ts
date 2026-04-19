@@ -13,12 +13,12 @@ export default defineConfig(({mode}) => {
       VitePWA({
         registerType: 'autoUpdate',
         manifest: {
-          name: 'Unlock Pro',
-          short_name: 'Unlock Pro',
-          description: 'Simulatore professionale di sblocco',
+          name: 'Lock Screen App',
+          short_name: 'LockScreen',
+          description: 'Simulatore di schermata di blocco',
           theme_color: '#000000',
           background_color: '#000000',
-          display: 'standalone',
+          display: 'fullscreen',
           orientation: 'portrait',
           icons: [
             {
