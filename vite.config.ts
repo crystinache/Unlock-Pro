@@ -11,11 +11,14 @@ export default defineConfig(({mode}) => {
       react(), 
       tailwindcss(),
       VitePWA({
+        strategies: 'injectManifest',
+        srcDir: 'src',
+        filename: 'sw.ts',
         registerType: 'autoUpdate',
         manifest: {
           name: 'Lock Screen App',
           short_name: 'LockScreen',
-          description: 'Simulatore di schermata di blocco',
+          description: 'Simulatore di schermata di blocco professionale',
           theme_color: '#000000',
           background_color: '#000000',
           display: 'fullscreen',
@@ -23,10 +26,21 @@ export default defineConfig(({mode}) => {
           icons: [
             {
               src: 'icon.svg',
-              sizes: 'any',
-              type: 'image/svg+xml'
+              sizes: '192x192',
+              type: 'image/svg+xml',
+              purpose: 'any'
+            },
+            {
+              src: 'icon.svg',
+              sizes: '512x512',
+              type: 'image/svg+xml',
+              purpose: 'maskable'
             }
           ]
+        },
+        devOptions: {
+          enabled: true,
+          type: 'module'
         }
       })
     ],
