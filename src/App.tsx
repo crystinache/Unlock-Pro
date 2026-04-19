@@ -69,20 +69,19 @@ export default function App() {
     }
 
     if (currentAttempts >= settings.unlockAttempts) {
-      if (typeof window !== 'undefined') {
-        window.close();
-      }
-
+      // "Unlock" -> go to peek screen (black screen)
+      // Small delay to let the user see the last input
       setTimeout(() => {
         setCurrentScreen('peek');
         setAttemptsMade(0);
         
+        // Save peek state
         savePeekState({
           screen: 'peek',
           value: newMemorizedPeek,
           type: newPeekType
         });
-      }, 4000);
+      }, 300);
       return true; // indicates success/unlock
     } else {
       setAttemptsMade(currentAttempts);
