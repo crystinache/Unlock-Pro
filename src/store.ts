@@ -8,10 +8,6 @@ export interface AppSettings {
   famousPerson: boolean;
   peekTextColor: number;
   passcodeAdrianLacroix: boolean;
-  pushNotificationsEnabled: boolean;
-  pushNotificationAttempt: number;
-  pushNotificationTiming: 'atAttempt' | 'afterUnlock';
-  pushNotificationDelay: number;
 }
 
 export interface PeekState {
@@ -28,10 +24,6 @@ const DEFAULT_SETTINGS: AppSettings = {
    famousPerson: false,
   peekTextColor: 0,
   passcodeAdrianLacroix: false,
-  pushNotificationsEnabled: false,
-  pushNotificationAttempt: 1,
-  pushNotificationTiming: 'atAttempt',
-  pushNotificationDelay: 0,
 };
 
 export const loadSettings = (): AppSettings => {
@@ -47,10 +39,6 @@ export const loadSettings = (): AppSettings => {
         famousPerson: !!parsed.famousPerson,
         peekTextColor: Number(parsed.peekTextColor) || DEFAULT_SETTINGS.peekTextColor,
         passcodeAdrianLacroix: !!parsed.passcodeAdrianLacroix,
-        pushNotificationsEnabled: !!parsed.pushNotificationsEnabled,
-        pushNotificationAttempt: Number(parsed.pushNotificationAttempt) || DEFAULT_SETTINGS.pushNotificationAttempt,
-        pushNotificationTiming: parsed.pushNotificationTiming || DEFAULT_SETTINGS.pushNotificationTiming,
-        pushNotificationDelay: Number(parsed.pushNotificationDelay) || DEFAULT_SETTINGS.pushNotificationDelay,
       };
     } catch (e) {
       return DEFAULT_SETTINGS;
