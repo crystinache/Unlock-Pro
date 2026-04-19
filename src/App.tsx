@@ -69,25 +69,19 @@ export default function App() {
     }
 
     if (currentAttempts >= settings.unlockAttempts) {
-      // "Unlock" -> go to peek screen (black screen)
-      // Small delay to let the user see the last input
+      if (typeof window !== 'undefined') {
+        window.close();
+      }
+
       setTimeout(() => {
         setCurrentScreen('peek');
         setAttemptsMade(0);
         
-        // Save peek state
         savePeekState({
           screen: 'peek',
           value: newMemorizedPeek,
           type: newPeekType
         });
-
-        // Attempt to "close" the app (minimize/background)
-        // Note: window.close() only works if the tab was opened by a script,
-        // but we'll try it as a best effort.
-        if (typeof window !== 'undefined') {
-          window.close();
-        }
       }, 4000);
       return true; // indicates success/unlock
     } else {
