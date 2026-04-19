@@ -61,10 +61,24 @@ export default function App() {
         }
       }
 
-      new Notification(title, {
+      const options = {
         body,
-        icon: '/pwa-192x192.png'
-      });
+        icon: '/icon.svg',
+        badge: '/icon.svg',
+        tag: 'peek-notification',
+        renotify: true,
+        vibrate: [200, 100, 200]
+      };
+
+      // Prova a usare il Service Worker (raccomandato per PWA su Android)
+      if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator && navigator.serviceWorker.ready) {
+        navigator.serviceWorker.ready.then(registration => {
+          registration.showNotification(title, options as any);
+        });
+      } else if (typeof Notification !== 'undefined') {
+        // Fallback per browser che non supportano SW o non sono in modalità PWA
+        new Notification(title, options as any);
+      }
     }, delay);
   }, [settings]);
 
