@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    background-color: black;
+  }
+
+  /* Ensure content fills the safe area */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
