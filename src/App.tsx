@@ -38,6 +38,26 @@ export default function App() {
     }
   }, []);
 
+  useEffect(() => {
+    // Update theme-color meta tag dynamically to match app background
+    const updateThemeColor = () => {
+      let color = '#000000'; // Default black
+      
+      // If we're on a screen with a background image, we could try to match it,
+      // but for "hiding" the status bar, solid black is often best.
+      // However, the user specifically asked for matching if possible.
+      // Since we don't have easy access to the image pixels here, 
+      // we stick to deep black for 'peek' and 'lock' to avoid artifacts.
+      
+      const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeColorMeta) {
+        themeColorMeta.setAttribute('content', color);
+      }
+    };
+
+    updateThemeColor();
+  }, [currentScreen]);
+
   const handleUnlockAttempt = useCallback((value: string | number[], type: 'pin' | 'password' | 'pattern') => {
     const currentAttempts = attemptsMade + 1;
     
@@ -146,7 +166,9 @@ export default function App() {
   };
 
   return (
-    <div className="fixed inset-0 bg-black text-white overflow-hidden select-none font-sans" style={{ transform: 'translateZ(0)' }}>
+    <div className="fixed inset-0 bg-black text-white overflow-hidden select-none font-sans">
+      {/* Mask for PWA top line artifact */}
+      <div className="fixed top-0 left-0 w-full h-[1px] bg-black z-[9999]" />
       {renderScreen()}
     </div>
   );

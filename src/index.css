@@ -14,7 +14,7 @@
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden;
-    background-color: black;
+    background-color: #000000 !important;
     overscroll-behavior: none;
     touch-action: none;
   }
