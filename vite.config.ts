@@ -18,7 +18,7 @@ export default defineConfig(({mode}) => {
           description: 'Simulatore di schermata di blocco',
           theme_color: '#000000',
           background_color: '#000000',
-          display: 'fullscreen',
+          display: 'standalone',
           orientation: 'portrait',
           icons: [
             {

@@ -146,7 +146,7 @@ export default function App() {
   };
 
   return (
-    <div className="fixed inset-0 bg-black text-white overflow-hidden select-none font-sans">
+    <div className="fixed inset-0 bg-black text-white overflow-hidden select-none font-sans" style={{ transform: 'translateZ(0)' }}>
       {renderScreen()}
     </div>
   );
