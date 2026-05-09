@@ -95,7 +95,7 @@ export const FAMOUS_PEOPLE: Record<string, string> = {
   "04-03": "Eddie Murphy",
   "04-04": "Sami Khedira (fot)",
   "04-05": "Simone Inzaghi (allenatore)",
-  "04-06": "Matteo Berrettini",
+  "04-06": "Oscar Piastri (F1)",
   "04-07": "Jackie Chan",
   "04-08": "Dean Norris (ACT)",
   "04-09": "Charles Baudelaire",
