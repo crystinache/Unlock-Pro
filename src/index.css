@@ -3,6 +3,9 @@
 @layer base {
   *, ::before, ::after {
     box-sizing: border-box;
+    border: none !important;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
   }
 
   html, body, #root {

@@ -126,7 +126,7 @@ export default function PeekScreen({
   const renderPatternPeek = (pattern: number[]) => {
     return (
       <div className="flex flex-col items-end">
-        <div className="relative w-48 h-48 bg-black/50 p-2 rounded-lg border border-white/10">
+        <div className="relative w-48 h-48 bg-black/50 p-2 rounded-lg">
           <div className="grid grid-cols-3 gap-0 w-full h-full relative z-10">
             {Array.from({ length: 9 }).map((_, i) => {
               const orderIndex = pattern.indexOf(i);
