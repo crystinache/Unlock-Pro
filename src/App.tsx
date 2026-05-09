@@ -166,9 +166,7 @@ export default function App() {
   };
 
   return (
-    <div className="fixed inset-0 bg-black text-white overflow-hidden select-none font-sans">
-      {/* Mask for PWA top line artifact */}
-      <div className="fixed top-0 left-0 w-full h-[1px] bg-black z-[9999]" />
+    <div className="fixed -top-[2px] -left-[2px] -right-[2px] -bottom-[2px] bg-black text-white overflow-hidden select-none font-sans">
       {renderScreen()}
     </div>
   );
